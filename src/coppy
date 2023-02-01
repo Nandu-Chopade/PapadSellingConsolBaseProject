@@ -1,0 +1,94 @@
+package TypesOfPapad;
+
+import java.util.Scanner;
+
+public class Main {
+	
+	int lastbill;
+	int price;
+	int revenue;
+	int discount;
+	int lastRevenue;
+	
+	
+	Main(){
+//		String billFirst = totalBill;
+//		lastbill = Integer.parseInt(billFirst);
+		Scanner sc = new Scanner(System.in);
+        System.out.println("<<<<<<<<<<<<<<<<<<<< Welcome To Chopade Papad Gruha Udyog >>>>>>>>>>>>>>>>>>>>");
+        System.out.println("Buy 20 pk And Get 10 % Discount \n ");
+        
+        System.out.println("Enter your firstName");
+		String fname = sc.nextLine();
+		
+		System.out.println("Enter your Last Name");
+		String lname = sc.nextLine();
+		
+		String name = fname + " " + lname;
+        
+        System.out.println("Press 1 - Nagali Papad \n" + 
+		"Press 2 - Jwary Papad\n" + "Press 3 - Tandul Papad \n" + "Press 4 - Makka Papad" );
+        
+		int papadType = sc.nextInt();
+		String papadtypes;
+		int id;
+		
+		
+		
+		switch(papadType) {
+		case 1 :
+			if(1 >0) {
+				papadtypes = "Nagli Papad";
+			}
+			System.out.println("Enter Quantity ");
+			
+			new Papads( sc.nextInt(), 1, name);
+		break;
+		case 2 :
+			if(2 >0) {
+				papadtypes = "Jwary Papad";
+			}
+			System.out.println("Enter Quantity ");
+			
+			new Papads( sc.nextInt(),2 , name);
+		break;
+		case 3 :
+			if(3 >0) {
+				papadtypes = "Tadul Papad";
+			}
+			System.out.println("Enter Quantity ");
+		
+			new Papads( sc.nextInt(), 3, name);
+		break;
+		case 4 :
+			if(4 >0) {
+				papadtypes = "Makka Papad";
+			}
+			System.out.println("Enter Quantity ");
+			new Papads( sc.nextInt(), 4, name);
+		break;
+		default :
+			System.out.println("Invali Input !");
+		}
+		
+		
+		try {
+			Conn connection = new Conn();
+			String query = "insert into papadDetails values('"+id+"', '"+fname+"', '"+lname+"', '"+papadType+"','"+sc.nextLine()+"','"+price+"', '"+revenue+"','"+discount+"','"+lastRevenue+"')";
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		
+		System.out.println("\n <<<<<<<<<<<<<<<<<<<< Thanks for choosing us ! >>>>>>>>>>>>>>>>>>>>");	
+
+	}
+	
+	public static void main(String[] args) {
+		
+		new Main();
+		
+		
+	}
+
+}
